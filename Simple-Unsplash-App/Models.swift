@@ -7,7 +7,6 @@
 
 import Foundation
 
-// Mark
 struct Unsplash: Codable, Hashable {
     let id: String?
     let urls: Urls?
