@@ -9,7 +9,7 @@ import Foundation
 
 class APICall {
     func getAPI(completion: @escaping ([Unsplash]) -> ()) {
-        guard let url = URL(string: "https://api.unsplash.com/photos/random/?{Your Own API Key}&count=30") else {
+        guard let url = URL(string: "https://api.unsplash.com/photos/random/?client_id=H94VVE6uhj1eul2lGR5hjalUZbug97ijo4sjKJY5GuQ&count=30") else {
             return
         }
 
@@ -19,7 +19,8 @@ class APICall {
                 let returnedData = try JSONDecoder().decode([Unsplash].self, from: data!)
 
                 for each in returnedData {
-                    print(each.id ?? "-")
+                    print(each.user?.total_likes ?? 0)
+                    print(each.user?.profile_image ?? "")
                 }
 
 
@@ -33,3 +34,5 @@ class APICall {
             .resume()
     }
 }
+
+
